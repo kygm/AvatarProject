@@ -10,30 +10,38 @@ ApplicationWindow {
 
         Row {
             id: tabBarRow
-            width: parent.width * 2/3 // Adjust width to 2/3 of the parent width
+            width: parent.width * 2/3 
             height: tabBar.height
 
             Rectangle {
                 width: parent.width
                 height: parent.height
-                color: "grey" // Set background color to grey
+                color: "#64778D" 
             }
 
             Item {
-                id: tabBar // Define tabBar object
-                width: parent.width // Set width to parent width
-                height: tabBarRow.height // Set height to tabBarRow height
+                id: tabBar 
+                width: parent.width 
+                height: tabBarRow.height 
             }
 
             TabButton {
                 text: "Brainwave Reading"
+                onClicked: stackView.push("brainwave-reading-page.qml")
             }
             TabButton {
                 text: "Manual Drone Control"
+                onClicked: stackView.push("manual-drone-control-page.qml")
             }
             TabButton {
                 text: "Transfer Data"
+                onClicked: stackView.push("transfer-data-page.qml")
             }
+        }
+
+        StackView {
+            id: stackView
+            anchors.fill: parent
         }
     }
 }
